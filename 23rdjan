@@ -1,0 +1,39 @@
+Chef likes strings a lot but he likes palindromic strings more. Today, Chef has two strings A and B, each consisting of lower case alphabets.Chef is eager to know whether it is possible to choose some non empty strings s1 and s2 where s1 is a substring of A, s2 is a substring of B such that s1 + s2 is a palindromic string. Here '+' denotes the concatenation between the strings.
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+   char a[1001],b[1001];
+   int i,j,flag,t;
+   scanf("%d",&t);
+  while(t--)
+     {
+     	scanf("%s%s",a,b);
+     	i=0;
+     	flag=0;
+     	
+     	  while(a[i]!='\0')
+     		{
+ 			j=0;
+ 			while(b[j]!='\0')
+ 			 {
+ 			   if(a[i]==b[j])
+ 			     {
+                                flag=1;
+                                break;    		
+                             }
+                            j++;
+                          }
+                         if(flag==1)
+                           break;
+                           i++;
+               }
+            if(flag==1)
+             printf("Yes\n");
+            else
+             printf("No\n");
+     }
+   
+   }
+ 
