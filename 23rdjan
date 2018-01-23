@@ -36,4 +36,194 @@ int main()
      }
    
    }
+ You are given a string s of length 8 consisting solely of '0's and '1's. Assume that the characters of the string are written in a circular fashion. You need to find the number of 0-1 or 1-0 transitions that one has to make while making a single traversal over the string. ie. start from any character and go circularly until you get back to the same character, and find the number of transitions that you made. The string is said to be said to be uniform if there are at most two such transitions. Otherwise, it is called non-uniform.
  
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+	int t,n,i,count;string s;
+	cin>>t;
+	while(t--)
+	{
+	    count=0;
+	    cin>>s;
+	    n=s.length();
+	    for(i=0;i<n;i++)
+	    {
+	        if(i!=n-1)
+	        {
+	            if(s[i]=='0' && s[i+1]=='1')
+	            count++;
+	             if(s[i]=='1' && s[i+1]=='0')
+	             count++;
+	        }
+	        
+	    }
+	   if(count<=2)
+	   cout<<"uniform"<<"\n";
+	   else
+	   cout<<"non-uniform"<<"\n";
+	    
+	}
+}
+The Chef had a box with N numbers arranged inside it: A1, A2, ..., AN. He also had the number N at the front, so that he knows how many numbers are in it. That is, the box actually contains N+1 numbers. But in his excitement due the ongoing IOI, he started dancing with the box in his pocket, and the N+1 numbers got jumbled up. So now, he no longer knows which of the N+1 numbers is N, and which the actual numbers are.
+
+He wants to find the largest of the N numbers. Help him find this
+
+#include<stdio.h>
+int main()
+{
+int T;
+scanf("%d",&T);
+while(T)
+{
+long i=0,j,max=0,count=0,arr[10];
+char c=' ';
+while(c!='\n')
+{
+    scanf("%d%c",&arr[i],&c);
+    i++;
+}
+ 
+for(j=0;j<i;j++)
+{
+    if(arr[j]==i-1 && count==0)
+    {
+        arr[j]=0;
+        count=1;
+    }
+    if(arr[j]>max)
+    max=arr[j];
+}
+printf("%ld\n",max);
+T--;
+}
+return 0;
+Today is Chef's birthday. His mom has surprised him with truly fruity gifts: 2 fruit baskets. The first basket contains N apples, and the second one contains M oranges. Chef likes apples and oranges very much but he likes them equally, and therefore, wants to have the minimum possible difference between the number of apples and oranges he has. To do so, he can purchase 1 apple or 1 orange by paying exactly 1 gold coin (that's some expensive fruit, eh?). Chef can purchase fruits at most K times (as he has only K gold coins in his pocket) to make the difference the minimum possible.
+
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+ 
+    int t;
+    scanf("%d",&t);
+ 
+    int n;
+    int m;
+    int k;
+ 
+    int i;
+    int j;
+ 
+    for(i=0;i<t;i++){
+ 
+        scanf("%d %d %d",&n,&m,&k);
+ 
+        if(n > m){
+ 
+            if(m+k >= n){
+ 
+                printf("0\n");
+ 
+            }else{
+ 
+                printf("%d\n",n-m-k);
+ 
+            }
+ 
+ 
+        }else{
+ 
+               if(n+k >= m){
+ 
+                printf("0\n");
+ 
+            }else{
+ 
+                printf("%d\n",m-n-k);
+ 
+            }
+ 
+        }
+ 
+ 
+ 
+    }
+ 
+    return 0;
+}
+ 
+
+
+
+
+
+
+
+
+
+Chef has found two very old sheets of paper, each of which originally contained a string of lowercase Latin letters. The strings on both the sheets have equal lengths. However, since the sheets are very old, some letters have become unreadable.
+
+Chef would like to estimate the difference between these strings. Let's assume that the first string is named S1, and the second S2. The unreadable symbols are specified with the question mark symbol '?'. The difference between the strings equals to the number of positions i, such that S1i is not equal to S2i, where S1i and S2i denote the symbol at the i the position in S1 and S2, respectively.
+
+Chef would like to know the minimal and the maximal difference between the two strings, if he changes all unreadable symbols to lowercase Latin letters. Now that you're fully aware of Chef's programming expertise, you might have guessed that he needs you help solving this problem as well
+#include<stdio.h>
+#include<string.h>
+ 
+int main()
+{
+    int t,i,j,eq,qu,uneq;
+    scanf("%d",&t);
+    for(i=0;i<t;i++)
+    {
+        char str[105],str1[105];
+        scanf("%s",str);
+        scanf("%s",str1);
+        qu = 0;
+        eq = 0;
+        uneq = 0;
+        int l = strlen(str);
+        for(j=0;j<l;j++)
+        {
+            if(str[j] == '?' || str1[j] == '?')
+            {
+                qu++;
+            }
+            else if(str[j] == str1[j])
+            {
+                eq++;
+            }
+            else
+            {
+                uneq++;
+            }
+        }
+        printf("%d %d\n",uneq,l-eq);
+    }
+    return 0;
+    
+    #include <iostream>
+using namespace std;
+
+int main()
+{
+    int n1, n2;
+
+    cout << "Enter two numbers: ";
+    cin >> n1 >> n2;
+    
+    while(n1 != n2)
+    {
+        if(n1 > n2)
+            n1 -= n2;
+        else
+            n2 -= n1;
+    }
+
+    cout << "HCF = " << n1;
+    return 0;
+}
